@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Guest Booking</title>
+    <link rel="stylesheet" href="booking1.css" />
+    <link rel="icon" href="casa suuq.png"/>
+   
+</head>
+<body>
+    <div class="container">
+         <header>
+            <h1>Casa Store</h1>
+            <h2>for Computer and PC Supplies</h2>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery & Data</a></li>
+                <li><a href="booking.html" class="active">Guest Booking</a></li>
+                <li><a href="help.html">Help</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <h3>Guest Booking Form</h3>
+            <form>
+                <!-- Name -->
+                <div class="form-group">
+                    <label for="name">Full Name<span class="required">*</span>:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+                </div>
+
+                <!-- Major -->
+                <div class="form-group">
+                    <legend>For use<span class="required">*</span>:</legend>
+                    <select name="major" id="major" required>
+                        <option value="" disabled selected>Select your use</option>
+                        <option value="Computer Science">For programming</option>
+                        <option value="Information Technology"> For work</option>
+                        <option value="Software Engineering">Gaming</option>
+                        <option value="Cyber Security">For design</option>
+                        <option value="Cyber Security">For study</option>
+
+                    </select>
+                </div>
+
+                <!-- Gender -->
+                <div class="form-group">
+                    <legend>Gender<span class="required">*</span>:</legend>
+                    <label><input type="radio" name="gender" value="Male" required /> Male</label>
+                    <label><input type="radio" name="gender" value="Female" /> Female</label>
+                    
+                </div>
+
+                <!-- Hobbies -->
+                <div class="form-group">
+                    <legend>Hobbies:</legend>
+                    <label><input type="checkbox" name="hobbies" value="Reading" /> Reading</label>
+                    <label><input type="checkbox" name="hobbies" value="Programming" /> Programming</label>
+                    <label><input type="checkbox" name="hobbies" value="Gaming" /> Gaming</label>
+                    <label><input type="checkbox" name="hobbies" value="Sports" /> Sports</label>
+                </div>
+
+                <!-- Comments -->
+                <div class="form-group">
+                    <label for="comments">Comments:</label>
+                    <textarea id="comments" name="comments" rows="4" placeholder="Write your comments here..."></textarea>
+                </div>
+
+                <!-- Submit -->
+                <div class="form-group">
+                    <button type="submit">Submit Booking</button>
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Casa Store</p>
+        </footer>
+    </div>
+</body>
+</html>
