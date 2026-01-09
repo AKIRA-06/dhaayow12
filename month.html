@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رسالة لكِ ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    direction: rtl;
+    overflow: hidden;
+}
+
+/* الصندوق الرئيسي */
+.container {
+    background: white;
+    padding: 4vh 4vw;
+    border-radius: 20px;
+    width: 92%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 10;
+}
+
+/* النص المتغير */
+#text {
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: #333;
+    min-height: 90px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* الزر */
+button {
+    background: #ff4b5c;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: clamp(15px, 2.8vw, 18px);
+    cursor: pointer;
+}
+
+/* الرسالة الكبيرة النهائية */
+#bigMessage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(28px, 6vw, 44px);
+    color: white;
+    text-shadow: 0 0 15px rgba(0,0,0,0.3);
+    display: none;
+    animation: pop 1s ease forwards;
+    text-align: center;
+    line-height: 1.6;
+    padding: 0 10px;
+}
+
+/* سطرين الرسالة */
+#line1, #line2 {
+    margin-bottom: 10px;
+}
+
+/* تأثير تكبير */
+@keyframes pop {
+    from { transform: translate(-50%, -50%) scale(0.2); opacity: 0; }
+    to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* قلوب متطايرة */
+.heart {
+    position: fixed;
+    color: #ff2e63;
+    font-size: clamp(18px, 5vw, 30px);
+    animation: float 5s linear infinite;
+    top: 100%;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-120vh) scale(1.8); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div id="text">اضغطي الزر ❤️</div>
+    <button onclick="nextMessage()">اضغطي هنا</button>
+</div>
+
+<!-- الرسالة النهائية -->
+<div id="bigMessage">
+    <div id="line1">أحبكِ زوجتي المستقبلية ❤️</div>
+    <div id="line2" style="opacity:0;">waa ku jacalahay macanto 🤍</div>
+</div>
+
+<script>
+const messages = [
+    "من أول يوم عرفتك فيه… حسّيت إن في شي مختلف 🌸",
+    "ضحكتك صارت أمان، وكلامك راحة 🤍",
+    "كل يوم معك كان أقرب لقلبي",
+    "مر شهرين…",
+    "وشهرين هذي ما كانت عادية أبداً ❤️",
+    "كنتِ أجمل صدفة في حياتي",
+    "وأحلى شعور عشته",
+    "وأبغى أكمل الطريق معك…",
+    "كل سنة، كل شهر، كل يوم 💕"
+];
+
+let index = 0;
+
+function nextMessage() {
+    if (index < messages.length) {
+        typeText(messages[index]);
+        index++;
+    } else {
+        showBigMessage();
+    }
+}
+
+function typeText(text) {
+    let i = 0;
+    const textDiv = document.getElementById("text");
+    textDiv.innerHTML = "";
+
+    const interval = setInterval(() => {
+        textDiv.innerHTML += text.charAt(i);
+        i++;
+        if (i >= text.length) clearInterval(interval);
+    }, 45);
+}
+
+function showBigMessage() {
+    document.querySelector(".container").style.display = "none";
+
+    const bigMsg = document.getElementById("bigMessage");
+    const line2 = document.getElementById("line2");
+
+    bigMsg.style.display = "block";
+
+    // قلوب متطايرة
+    for (let i = 0; i < 28; i++) createHeart();
+
+    // ظهور الجملة الثانية بعد ثواني
+    setTimeout(() => {
+        line2.style.transition = "opacity 1.2s ease";
+        line2.style.opacity = 1;
+    }, 2500);
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}
+</script>
+
+</body>
+</html>
